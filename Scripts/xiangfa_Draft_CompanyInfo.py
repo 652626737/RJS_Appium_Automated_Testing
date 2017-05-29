@@ -67,21 +67,21 @@ class CompanyInfo():
         el = self.driver.find_element_by_id("com.rjs.ddjr:id/title_right_custom")
         el.click()
         print("单位名称已输入")
-        sleep(3)
+        self.driver.implicitly_wait(1)
 
         print("开始输入单位地址。。。。。")
         el = self.driver.find_element_by_id("com.rjs.ddjr:id/company_address_text")
         el.click()
-        sleep(1)
+        self.driver.implicitly_wait(1)
         el = self.driver.find_element_by_id("com.rjs.ddjr:id/item_content")
         el.click()
-        sleep(1)
+        self.driver.implicitly_wait(1)
         el = self.driver.find_element_by_id("com.rjs.ddjr:id/textView")
         el.click()
-        sleep(2)
+        self.driver.implicitly_wait(2)
         el = self.driver.find_element_by_id("com.rjs.ddjr:id/textView")
         el.click()
-        sleep(2)
+        self.driver.implicitly_wait(2)
         el = self.driver.find_element_by_id("com.rjs.ddjr:id/textView")
         el.click()
         el = self.driver.find_element_by_id("com.rjs.ddjr:id/et_addr")
@@ -91,7 +91,7 @@ class CompanyInfo():
         el = self.driver.find_element_by_id("com.rjs.ddjr:id/title_right_custom")
         el.click()
         print("单位地址输入成功")
-        sleep(3)
+        self.driver.implicitly_wait(1)
 
 
         print("开始输入单位电话。。。。。")
@@ -101,7 +101,7 @@ class CompanyInfo():
         el.send_keys(self.company_mobile)
         self.driver.hide_keyboard()
         print("单位电话已输入")
-        sleep(3)
+        self.driver.implicitly_wait(1)
 
         print("开始选择职位。。。。。")
         el = self.driver.find_element_by_id("com.rjs.ddjr:id/position_text")
@@ -116,7 +116,7 @@ class CompanyInfo():
         el = self.driver.find_element_by_id('com.rjs.ddjr:id/done')
         el.click()
         print('职位已选择')
-        sleep(3)
+        self.driver.implicitly_wait(1)
 
 
         print("开始输入部门。。。。。")
@@ -129,7 +129,7 @@ class CompanyInfo():
         self.driver.hide_keyboard()
         el = self.driver.find_element_by_id("com.rjs.ddjr:id/title_right_custom")
         el.click()
-        sleep(3)
+        self.driver.implicitly_wait(1)
         print("部门已经输入")
 
 
@@ -150,7 +150,7 @@ class CompanyInfo():
         el = self.driver.find_element_by_id("com.rjs.ddjr:id/done")
         el.click()
         print("起始服务时间已选择")
-        sleep(3)
+        self.driver.implicitly_wait(1)
 
 
         print("开始输入每月收入。。。。。")
@@ -160,7 +160,7 @@ class CompanyInfo():
         el.send_keys(self.monthly_income)
         self.driver.hide_keyboard()
         print("每月收入已输入")
-        sleep(3)
+        self.driver.implicitly_wait(1)
 
         # 往上翻动
         self.driver.swipe(400, 1100, 400, 800)
@@ -178,7 +178,7 @@ class CompanyInfo():
         el = self.driver.find_element_by_id('com.rjs.ddjr:id/done')
         el.click()
         print('每月发薪日已选择')
-        sleep(3)
+        self.driver.implicitly_wait(3)
 
 
         print("开始选择支付方式。。。。。")
@@ -193,7 +193,7 @@ class CompanyInfo():
         el = self.driver.find_element_by_id('com.rjs.ddjr:id/done')
         el.click()
         print('支付方式已选择')
-        sleep(3)
+        self.driver.implicitly_wait(3)
 
 
         # 往上翻动
@@ -214,9 +214,9 @@ class CompanyInfo():
         self.driver.find_element_by_id("com.rjs.ddjr:id/iv_pic").click()
         self.driver.find_element_by_id('com.rjs.ddjr:id/cbx').click()
         self.driver.find_element_by_id('com.rjs.ddjr:id/action_done').click()
-        sleep(6)
+        self.driver.implicitly_wait(6)
         self.driver.find_element_by_id("com.rjs.ddjr:id/title_right_custom").click()
-        sleep(3)
+        self.driver.implicitly_wait(2)
         print("工作证明已上传")
 
 
@@ -229,32 +229,29 @@ class CompanyInfo():
         self.driver.find_element_by_id("com.rjs.ddjr:id/iv_pic").click()
         self.driver.find_element_by_id('com.rjs.ddjr:id/cbx').click()
         self.driver.find_element_by_id('com.rjs.ddjr:id/action_done').click()
-        sleep(6)
+        self.driver.implicitly_wait(6)
         self.driver.find_element_by_id("com.rjs.ddjr:id/title_right_custom").click()
-        sleep(3)
+        self.driver.implicitly_wait(2)
         print("央行征信照片已上传")
 
 
         self.driver.find_element_by_id("com.rjs.ddjr:id/draft_save").click()
-        sleep(1)
+        self.driver.implicitly_wait(1)
         print("——————————————————————————草稿录单模块，公司信息页面已保存！——————————————————")
+
+        # 评审修改时间2017/5/4
+        # 加入检查点，并最终判断case执行的结果是通过还是不通过
+        self.driver.start_activity('com.rjs.ddjr', 'com.rjs.ddjr.publicmodel.view.HomeActivity')
 
 
 
         try:
-            # 评审修改时间2017/5/4
-            # 加入检查点，并最终判断case执行的结果是通过还是不通过
-            self.driver.start_activity('com.rjs.ddjr', 'com.rjs.ddjr.publicmodel.view.HomeActivity')
-
-            # 去掉升级，点击【工作台】按钮，进入草稿录单页面
-            # el = self.driver.find_element_by_id("android:id/button2")
-            # el.click()
-            sleep(1)
+     #       sleep(1)
             el = self.driver.find_element_by_id("com.rjs.ddjr:id/main_btn_message")
             el.click()
             el = self.driver.find_element_by_id("com.rjs.ddjr:id/draft")
             el.click()
-            sleep(1)
+         #   sleep(1)
             el = self.driver.find_element_by_id("com.rjs.ddjr:id/cheyidai_tab")
             el.click()
             el = self.driver.find_element_by_id('com.rjs.ddjr:id/draft_item_name')
@@ -284,7 +281,7 @@ class CompanyInfo():
             Logs.logs(self.y, 'logcat', logstr)._writ_file()
 
             excle.excels(self.x, self.z, pic).write_excel(2, 11)
-            sleep(10)
+          #  sleep(10)
 
 
 

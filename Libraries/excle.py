@@ -1,16 +1,15 @@
-# -*- coding:utf-8 -*-
-
+#! usr/bin/python
+#coding=utf-8
+#2017/5/4-AUTHOR-JOE
 import xlrd
 import xlwt
 from xlutils.copy import copy
 import os
 import shutil
 
-
 class excels():
-    # 修改path的名称
-    def __init__(self, path, name, flag):
-        self.x = path
+    def __init__(self, xdpth, name, flag):
+        self.x = xdpth
         self.y = name
         self.z = flag
 

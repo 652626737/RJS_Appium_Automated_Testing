@@ -74,49 +74,42 @@ class IncomeInfo():
 
         print("开始选择收入类型")
         self.driver.find_element_by_id("com.rjs.ddjr:id/income_certificate_text").click()
-        sleep(1)
+        # self.driver.implicitly_wait(1)
         self.driver.find_element_by_id("com.rjs.ddjr:id/rb_1").click()
         self.driver.find_element_by_id("com.rjs.ddjr:id/tv_confirm").click()
         print("开始上传收入证明")
         self.driver.find_element_by_id("com.rjs.ddjr:id/iv_pic").click()
         self.driver.find_element_by_id('com.rjs.ddjr:id/cbx').click()
         self.driver.find_element_by_id('com.rjs.ddjr:id/action_done').click()
-        sleep(6)
+        self.driver.implicitly_wait(6)
         self.driver.find_element_by_id('com.rjs.ddjr:id/title_right_custom').click()
         print('收入证明上传成功！')
 
         print("开始上传央行征信报告")
         self.driver.find_element_by_id("com.rjs.ddjr:id/credit_report_text").click()
-        sleep(1)
+        # self.driver.implicitly_wait(1)
         self.driver.find_element_by_id("com.rjs.ddjr:id/iv_pic").click()
         self.driver.find_element_by_id('com.rjs.ddjr:id/cbx').click()
         self.driver.find_element_by_id('com.rjs.ddjr:id/action_done').click()
-        sleep(6)
+        self.driver.implicitly_wait(6)
         self.driver.find_element_by_id('com.rjs.ddjr:id/title_right_custom').click()
-        sleep(1)
         print('央行征信报告上传成功！')
 
         self.driver.find_element_by_id("com.rjs.ddjr:id/draft_save").click()
-        sleep(3)
+        # self.driver.implicitly_wait(2)
         print("——————————————————————————草稿录单模块，收入信息页面已保存！——————————————————")
 
-
-
+        # 评审修改时间2017/5/4
+        # 加入检查点，并最终判断case执行的结果是通过还是不通过
+        self.driver.start_activity('com.rjs.ddjr', 'com.rjs.ddjr.publicmodel.view.HomeActivity')
+      #  sleep(6)
 
         try:
-            # 评审修改时间2017/5/4
-            # 加入检查点，并最终判断case执行的结果是通过还是不通过
-            self.driver.start_activity('com.rjs.ddjr', 'com.rjs.ddjr.publicmodel.view.HomeActivity')
-
-            # 去掉升级，点击【工作台】按钮，进入草稿录单页面
-            # el = self.driver.find_element_by_id("android:id/button2")
-            # el.click()
-            sleep(1)
             el = self.driver.find_element_by_id("com.rjs.ddjr:id/main_btn_message")
             el.click()
             el = self.driver.find_element_by_id("com.rjs.ddjr:id/draft")
             el.click()
-            sleep(1)
+            self.driver.implicitly_wait(1)
             el = self.driver.find_element_by_id("com.rjs.ddjr:id/cheyidai_tab")
             el.click()
             el = self.driver.find_element_by_id('com.rjs.ddjr:id/draft_item_name')
@@ -147,7 +140,7 @@ class IncomeInfo():
             Logs.logs(self.y, 'logcat', logstr)._writ_file()
 
             excle.excels(self.x, self.z, pic).write_excel(2, 11)
-            sleep(10)
+            #sleep(10)
 
 
         except:

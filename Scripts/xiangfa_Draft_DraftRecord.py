@@ -29,16 +29,24 @@ class DraftRecord():
         self.n = apppath
         self.driver = driver
         print(self.n)
-        self.driver.implicitly_wait(1000)
 
         # 先进行登录操作，修改APPLogin为XianfaLogin后，去掉APPLogin()方法
         XiangfaLogin(self.x, self.y, self.m, self.n, self.z,self.driver).login()
 
         self.driver.start_activity("com.rjs.ddjr", "com.rjs.ddjr.cheyidai.draft.view.DraftRecordActivity")
-        sleep(8)
+    #    sleep(6)
 
     def CheckDraftRecord(self):
         self.driver.find_element_by_id("com.rjs.ddjr:id/cheyidai_tab").click()
-        sleep(1)
+        self.driver.implicitly_wait(6)
+        try:
+            self.driver.find_element_by_id("com.rjs.ddjr:id/draft_item_name")
 
+
+        except NoSuchElementException as e:
+            print(e)
+
+
+        else:
+            self.driver.find_element_by_id("com.rjs.ddjr:id/add_draft").click()
 

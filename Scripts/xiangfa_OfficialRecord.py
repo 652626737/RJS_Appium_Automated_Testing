@@ -33,42 +33,42 @@ class OfficialRecord():
 
         print("-----------------------------开始正式推单------------------------------")
         self.driver.find_element_by_id("com.rjs.ddjr:id/official_record").click()
-        sleep(3)
+        self.driver.implicitly_wait(2)
 
         # 个人信息模块
         print("个人信息页面，点击下一步")
         self.driver.find_element_by_id("com.rjs.ddjr:id/tv_next").click()
-        sleep(3)
+        self.driver.implicitly_wait(2)
 
         # 房产信息模块
         print("房产信息页面，点击下一步")
         self.driver.find_element_by_id("com.rjs.ddjr:id/tv_next").click()
-        sleep(3)
+        self.driver.implicitly_wait(2)
 
         # 车辆信息模块
         print("车辆信息页面，点击下一步")
         self.driver.find_element_by_id("com.rjs.ddjr:id/tv_next").click()
-        sleep(3)
+        self.driver.implicitly_wait(2)
 
         # 公司信息/ 企业信息/ 收入信息模块
         print("公司/企业/收入信息页面，点击下一步")
         self.driver.find_element_by_id("com.rjs.ddjr:id/tv_next").click()
-        sleep(3)
+        self.driver.implicitly_wait(2)
 
         # 联系人信息/父母子女信息模块
         print("联系人信息/父母子女信息信息页面，点击下一步")
         self.driver.find_element_by_id("com.rjs.ddjr:id/tv_next").click()
-        sleep(3)
+        self.driver.implicitly_wait(2)
 
         # 车辆照片信息模块
         print("车辆照片信息页面，点击下一步")
         self.driver.find_element_by_id("com.rjs.ddjr:id/tv_next").click()
-        sleep(3)
+        self.driver.implicitly_wait(2)
 
         # 提交单子
         print("开始提交单子")
         self.driver.find_element_by_id("com.rjs.ddjr:id/tv_submit").click()
-        sleep(3)
+        self.driver.implicitly_wait(3)
         print("--------------------------------推单成功------------------------------")
 
 

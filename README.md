@@ -15,8 +15,6 @@
 
 
 # 运行效果如下
-![images](https://testerhome.com/uploads/photo/2017/01668662-cfd2-4c41-9f18-772a1f89c319.png!large) 
-![images](https://testerhome.com/uploads/photo/2017/25b7de72-975e-40d6-b3de-3ce5aa942730.jpg!large) 
 ![images](https://testerhome.com/uploads/photo/2017/1a017510-aa1d-43e8-9fa1-89e81ce8c2a3.jpg!large) 
 ![images](https://testerhome.com/uploads/photo/2017/ecfa7894-3b6f-46ff-a1c1-cb6cb2a56274.gif!large) 
 ![images](https://testerhome.com/uploads/photo/2017/22aa87ea-ce2d-4c5d-9033-29e7ecc38b36.gif!large) 
